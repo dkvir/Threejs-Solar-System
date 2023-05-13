@@ -1,4 +1,6 @@
 const audio = new Audio('/audio/Space-Oddity.mp3');
+audio.loop = true;
+
 
 const loaderDiv = document.querySelector('.loader');
 const musicDiv = document.querySelector('.music');

@@ -157,11 +157,29 @@ html {
   pointer-events: none;
 
   .music-text{
+    position: relative;
     margin-left: 30px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: css-clamp(18px,24px);
+    line-height: 1;
+    margin-top: css-clamp(5px,1px);
     color: var(--color-white);
-    font-family: var(--font-family-Monarch);
+    font-family: var(--font-family-monarch);
+    &:hover{
+      --line-width: 100%
+    };
+    &:before{
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: -10px;
+      right: 0;
+      margin: 0 auto;
+      width: var(--line-width, 0);
+      height: 1.5px;
+      background-color: #950037;
+      transition: .3s ease;
+    }
   }
 
   @keyframes stop {
