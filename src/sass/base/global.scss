@@ -155,7 +155,7 @@ html {
   top: 30px;
   left: css-clamp(20px,50px);
   pointer-events: none;
-  padding: 20px 10px;
+  padding: css-clamp(10px,20px) css-clamp(5px,10px);
   width: css-clamp(170px,250px);
   border: 1px solid var(--color-white);
   background-color: var(--music-hover-color, var(--color-transparent));
