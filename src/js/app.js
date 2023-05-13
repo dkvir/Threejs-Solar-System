@@ -22,7 +22,6 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 
-
 const orbit = new OrbitControls(camera, renderer.domElement);
 
 // Camera positioning
