@@ -158,11 +158,11 @@ html {
 
   .music-text{
     position: relative;
-    margin-left: 30px;
+    margin-left: css-clamp(15px,30px);
     cursor: pointer;
     font-size: css-clamp(18px,24px);
     line-height: 1;
-    margin-top: css-clamp(5px,1px);
+    margin-top: 5px;
     color: var(--color-white);
     font-family: var(--font-family-monarch);
     &:hover{
