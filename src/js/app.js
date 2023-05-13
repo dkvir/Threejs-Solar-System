@@ -28,6 +28,12 @@ const orbit = new OrbitControls(camera, renderer.domElement);
 // Camera positioning
 camera.position.set(-90, 140, 140);
 orbit.autoRotate = true;
+orbit.enableDamping = true;
+orbit.dampingFactor = 0.5;
+orbit.rotateSpeed = 0.5; 
+orbit.autoRotateSpeed = 1;
+orbit.maxDistance = 500;
+orbit.minDistance = 50;
 
 // Light
 const ambientLight = new THREE.AmbientLight(0x333333);
