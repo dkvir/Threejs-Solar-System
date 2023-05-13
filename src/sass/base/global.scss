@@ -155,7 +155,17 @@ html {
   top: 30px;
   left: 50px;
   pointer-events: none;
+  padding: 20px 10px;
+  width: 250px;
+  border: 1px solid var(--color-white);
+  background-color: var(--music-hover-color, var(--color-transparent));
+  @include default-transitions(background-color);
+  border-radius: 10px;
 
+  &:hover{
+    --music-hover-color: var(--color-white);
+    --bars-hover-bg: var(--color-black);
+  }
   .music-text{
     position: relative;
     margin-left: css-clamp(15px,30px);
@@ -163,23 +173,9 @@ html {
     font-size: css-clamp(18px,24px);
     line-height: 1;
     margin-top: 5px;
-    color: var(--color-white);
+    color: var(--bars-hover-bg,var(--color-white));
     font-family: var(--font-family-monarch);
-    &:hover{
-      --line-width: 100%
-    };
-    &:before{
-      position: absolute;
-      content: "";
-      left: 0;
-      bottom: -10px;
-      right: 0;
-      margin: 0 auto;
-      width: var(--line-width, 0);
-      height: 1.5px;
-      background-color: #950037;
-      transition: .3s ease;
-    }
+    @include default-transitions(color);
   }
 
   @keyframes stop {
@@ -269,9 +265,10 @@ html {
     display: block;
     float: left;
     width: 4px;
-    background-color: var(--color-white);
+    background-color: var(--bars-hover-bg,var(--color-white));
     border-radius: 1px 1px 0px 0px;
     transition: height 0.4s linear; 
+    @include default-transitions(background-color)
   }
   
   .bars:first-child {
