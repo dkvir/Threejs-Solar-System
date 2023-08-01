@@ -1,6 +1,7 @@
 /* Demo JS */
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
 import { gsap } from 'gsap';
@@ -23,6 +24,17 @@ const camera = new THREE.PerspectiveCamera(
 );
 
 const orbit = new OrbitControls(camera, renderer.domElement);
+orbit.enableDamping = true;
+orbit.dampingFactor = 0.12;
+orbit.enableZoom = false;
+
+const trackball = new TrackballControls(camera, renderer.domElement);
+trackball.noRotate = true;
+trackball.noPan = true;
+trackball.noZoom = false;
+trackball.zoomSpeed = 1.5;
+trackball.minDistance = 50;
+trackball.maxDistance = 400;
 
 // Camera positioning
 camera.position.set(-90, 140, 140);
@@ -130,7 +142,10 @@ pluto.obj.rotateY(0.00007);
 
 
   renderer.render(scene, camera);
+  const target = orbit.target;
   orbit.update();
+  trackball.target.set(target.x, target.y, target.z);
+  trackball.update();
 }
 
 renderer.setAnimationLoop(animate);
