@@ -25,26 +25,25 @@ const camera = new THREE.PerspectiveCamera(
 
 const orbit = new OrbitControls(camera, renderer.domElement);
 orbit.enableDamping = true;
-orbit.dampingFactor = 0.12;
+orbit.dampingFactor = 1;
+orbit.autoRotate = true;
+orbit.autoRotateSpeed = 1;
 orbit.enableZoom = false;
+orbit.dampingFactor = 0.01;
+orbit.rotateSpeed = 0.1; 
 
 const trackball = new TrackballControls(camera, renderer.domElement);
 trackball.noRotate = true;
 trackball.noPan = true;
 trackball.noZoom = false;
-trackball.zoomSpeed = 1.5;
-trackball.minDistance = 50;
-trackball.maxDistance = 400;
+trackball.zoomSpeed = 0.5;
+trackball.minDistance = 80;
+trackball.maxDistance = 300;
+trackball.zoomSpeed = 0.05
 
 // Camera positioning
 camera.position.set(-90, 140, 140);
-orbit.autoRotate = true;
-orbit.enableDamping = true;
-orbit.dampingFactor = 0.5;
-orbit.rotateSpeed = 0.5; 
-orbit.autoRotateSpeed = 1;
-orbit.maxDistance = 500;
-orbit.minDistance = 50;
+
 
 // Light
 const ambientLight = new THREE.AmbientLight(0x333333);
